@@ -15,7 +15,16 @@
 
 文档内容
 ---
-镜像环境:
+拉取docker镜像环境:
+[source,bash]
+docker pull qhlai/container:lxc_go_v1
+
+运行环境
+[source,bash]
+docker run -it --rm --privileged qhlai/container:lxc_go_v1
+
+
+
 
 link:docs/Linux%20Container%20Namespace%20I.adoc[UTS Namespace,PID Namespace,User Namespace]
 
