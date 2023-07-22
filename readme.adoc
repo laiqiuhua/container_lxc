@@ -1,0 +1,23 @@
+= 使用命名空间构建Linux Container
+---
+
+[red]#注意事项#
+
+. 使用环境为Linux
+. Linux需要安装go环境
+. go需要配置环境
+[source]
+----
+  go env -w GO111MODULE=on
+  go env -w GOPROXY=https://goproxy.cn,direct
+  go get github.com/vishvananda/netlink
+----
+
+文档内容
+---
+镜像环境:
+
+link:docs/Linux%20Container%20Namespace%20I.adoc[UTS Namespace,PID Namespace,User Namespace]
+
+
+link:docs/Linux%20Container%20Namespace%20II.adoc[Mount Namespace,Network Namespace]
