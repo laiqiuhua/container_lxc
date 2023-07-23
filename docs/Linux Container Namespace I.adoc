@@ -855,7 +855,9 @@ udev /dev devtmpfs rw,nosuid,relatime,size=16402556k,nr_inodes=4100639,mode=755 
 现在，让我们通过在TB中执行以下命令来列出新命名空间中的所有挂载点：
 
 [source,bash]
+----
 # cat /proc/mounts | sort
+----
 
 以下是典型的输出：
 
