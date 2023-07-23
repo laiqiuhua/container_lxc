@@ -2,6 +2,7 @@
 :doctype: book
 :imagesdir: ./docs/
 :toc:
+:sectnums:
 
 [red]#注意事项#
 
@@ -15,6 +16,7 @@
   go get github.com/vishvananda/netlink
 ----
 
+
 文档内容
 ---
 拉取docker镜像环境:
@@ -25,7 +27,11 @@ docker pull qhlai/container:lxc_go_v1
 [source,bash]
 docker run -it --rm --privileged qhlai/container:lxc_go_v1
 
+link:docs/Linux%20Container%20Namespace%20I.adoc[UTS Namespace,PID Namespace,User Namespace]
+
+link:docs/Linux%20Container%20Namespace%20II.adoc[Mount Namespace,Network Namespace]
 
 include::docs/Linux Container Namespace I.adoc[UTS Namespace,PID Namespace,User Namespace]
 
-include::docs/Linux Container Namespace II.adoc[ount Namespace,Network Namespace]
+include::docs/Linux Container Namespace II.adoc[Mount Namespace,Network Namespace]
+
