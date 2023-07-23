@@ -286,7 +286,10 @@ image::imgs/img.png[sunset, 500, 375, align=center]
 要在父命名空间中创建名为veth0和 veth1的 veth接口对，请在TA 中执行以下命令：
 
 [source,bash]
-$ ip link add veth0 类型 veth 对等名称 veth1
+----
+$ ip link add veth0 type veth peer name veth1
+----
+
 
 要列出父命名空间中的所有网络接口，请在TA 中执行以下命令：
 
@@ -343,7 +346,9 @@ output.14
 要列出新命名空间中的所有网络接口，请在TB中执行以下命令：
 
 [source,bash]
+----
 # ip link
+----
 
 以下是典型的输出：
 
