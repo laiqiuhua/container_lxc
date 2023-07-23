@@ -26,9 +26,6 @@ docker pull qhlai/container:lxc_go_v1
 docker run -it --rm --privileged qhlai/container:lxc_go_v1
 
 
-
-
-
 include::docs/Linux Container Namespace I.adoc[UTS Namespace,PID Namespace,User Namespace]
 
 include::docs/Linux Container Namespace II.adoc[ount Namespace,Network Namespace]
