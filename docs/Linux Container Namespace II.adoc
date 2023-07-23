@@ -1,4 +1,6 @@
 
+.Linux Container Namespace II
+****
 == 概述
 
 在本系列的第 1 部分中 ，我们演示了使用命名空间 UTS、User、PID和 Mount来隔离主机名、用户/组 ID 和进程 ID 。
@@ -170,7 +172,7 @@ $ ./main
 以下是典型的输出：
 
 [source]
-output.1
+.output.1
 2020/03/14 22:05:46 启动进程 ./main 参数：[./main]
 2020/03/14 22:05:46 准备运行命令...
 2020/03/14 22:05:46 启动进程 ./main 参数：[./main CLONE]
@@ -196,7 +198,7 @@ output.1
 以下是典型的输出：
 
 [source]
-output.2
+.output.2
 leopard
 
 要显示新命名空间中的用户 ID 和组 ID，请在TB中执行以下命令：
@@ -207,7 +209,7 @@ leopard
 以下是典型的输出：
 
 [source]
-ouput.3
+.output.3
 uid=0(root) gid=0(root) groups=0(root)
 
 要显示简单容器中的所有进程，请在TB中执行以下命令：
@@ -218,7 +220,7 @@ uid=0(root) gid=0(root) groups=0(root)
 以下是典型的输出：
 
 [source]
-output.4
+.output.4
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root         1  0.0  0.0   4628   824 pts/1    S    22:05   0:00
 root         8  0.0  0.0  37368  3368 pts/1    R+   22:05   0:00 ps -fu
@@ -231,7 +233,7 @@ root         8  0.0  0.0  37368  3368 pts/1    R+   22:05   0:00 ps -fu
 以下是典型的输出：
 
 [source]
-output.5
+.output.5
 /dev/sda1 / ext4 rw,relatime,errors=remount-ro,data=ordered 0 0
 proc /proc proc rw,relatime 0 0
 tmpfs /tmp tmpfs rw,relatime 0 0
@@ -246,7 +248,8 @@ tmpfs /tmp tmpfs rw,relatime 0 0
 以下是典型的输出：
 
 [source]
-output.6
+.output.6
+----
 total 68
 drwxr-xr-x   2 nobody nogroup 4096 Feb  3 20:24 bin
 drwxr-xr-x   2 nobody nogroup 4096 Apr 24  2018 boot
@@ -267,7 +270,7 @@ drwxr-xr-x   2 nobody nogroup 4096 Apr 24  2018 sys
 drwxrwxrwt   2 root   root      60 Mar 21 17:32 tmp
 drwxr-xr-x  10 nobody nogroup 4096 Feb  3 20:23 usr
 drwxr-xr-x  11 nobody nogroup 4096 Feb  3 20:24 var
-
+----
 要列出简单容器中文件/tmp/leopard.txt的属性，请在TB中执行以下命令：
 
 [source]
@@ -276,7 +279,7 @@ drwxr-xr-x  11 nobody nogroup 4096 Feb  3 20:24 var
 以下是典型的输出：
 
 [source]
-output.7
+.output.7
 -rw-r--r-- 1 root root 7 Mar 14 22:05 /tmp/leopard.txt
 
 要列出与简单容器关联的所有命名空间，请在TB中执行以下命令：
@@ -287,7 +290,7 @@ output.7
 以下是典型的输出：
 
 [source]
-output.8
+.output.8
 total 0
 lrwxrwxrwx 1 root root 0 Mar 14 22:07 cgroup -> 'cgroup:[4026531835]'
 lrwxrwxrwx 1 root root 0 Mar 14 22:07 ipc -> 'ipc:[4026531839]'
@@ -328,11 +331,11 @@ $ unshare -uUrpfmn --mount-proc /bin/sh
 以下是典型的输出：
 
 [source]
-output.9
+.output.9
 1: lo: <LOOPBACK> mtu 65536 qdisc noop state DOWN mode DEFAULT group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 
-从上面的 Output.12 中，我们只看到环回( 127.0.0.1 ) 接口，并且它处于DOWN 状态。
+从上面的 .output.12 中，我们只看到环回( 127.0.0.1 ) 接口，并且它处于DOWN 状态。
 
 要在新命名空间中打开环回接口，请在TB中执行以下命令 ：
 [source, bash]
@@ -350,7 +353,7 @@ output.9
 以下是典型的输出：
 
 [source]
-output.10
+.output.10
 PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
 64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.022 ms
 64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.024 ms
@@ -375,7 +378,7 @@ $ brctl show
 以下是典型的输出：
 
 [source]
-output.11
+.output.11
 bridge name bridge id           STP enabled interfaces
 br0         8000.000000000000   no
 
@@ -397,7 +400,7 @@ $ ip link
 以下是典型的输出：
 
 [source]
-output.12
+.output.12
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 2: enp5s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN mode DEFAULT group default qlen 1000
@@ -429,7 +432,7 @@ $ip link
 以下是典型的输出：
 
 [source]
-output.13
+.output.13
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 2: enp5s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN mode DEFAULT group default qlen 1000
@@ -463,7 +466,7 @@ $ ip link
 以下是典型的输出：
 
 [source]
-output.14
+.output.14
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 2: enp5s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN mode DEFAULT group default qlen 1000
@@ -483,13 +486,13 @@ output.14
 以下是典型的输出：
 
 [source]
-output.15
+.output.15
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 2: veth1@if3: <BROADCAST,MULTICAST,M-DOWN> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
     link/ether c6:46:7c:18:1c:ef brd ff:ff:ff:ff:ff:ff
 
-比较Output.15和Output.14，我们发现它们完全不同。
+比较.output.15和.output.14，我们发现它们完全不同。
 
 要将末端veth0连接到父命名空间中的网桥br0 ，请在TA中执行以下命令：
 
@@ -529,7 +532,7 @@ $ ping 172.20.1.4 -c3
 以下是典型的输出：
 
 [source]
-output.16
+.output.16
 PING 172.20.1.4 (172.20.1.4) 56(84) bytes of data.
 64 bytes from 172.20.1.4: icmp_seq=1 ttl=64 time=0.079 ms
 64 bytes from 172.20.1.4: icmp_seq=2 ttl=64 time=0.038 ms
@@ -968,7 +971,7 @@ $ ./main
 
 [source]
 ----
-output.18
+.output.18
 2020/03/14 22:17:52 Starting process ./main with args: [./main]
 2020/03/14 22:17:52 Bridge br0 does not exists ...
 2020/03/14 22:17:52 Creating the Bridge br0 ...
@@ -1013,7 +1016,7 @@ $ cat /proc/self/net/dev
 
 [source]
 ----
-output.19
+.output.19
 Inter-|   Receive                                                |  Transmit
  face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed
 enp5s0:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
@@ -1032,14 +1035,14 @@ docker0:       0       0    0    0    0     0          0         0        0     
 
 [source]
 ----
-output.20
+.output.20
 Inter-|   Receive                                                |  Transmit
  face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed
     lo:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
  veth1:   20994     126    0    0    0     0          0         0      796      10    0    0    0     0       0          0
 ----
 
-比较Output.20和Output.19，我们发现它们完全不同。
+比较.output.20和.output.19，我们发现它们完全不同。
 
 要测试父命名空间中（容器的）IP 地址172.20.1.4 ，请在TA中执行以下命令：
 
@@ -1050,7 +1053,7 @@ $ ping 172.20.1.4 -c3
 
 [source]
 ----
-output.21
+.output.21
 PING 172.20.1.4 (172.20.1.4) 56(84) bytes of data.
 64 bytes from 172.20.1.4: icmp_seq=1 ttl=64 time=0.101 ms
 64 bytes from 172.20.1.4: icmp_seq=2 ttl=64 time=0.044 ms
@@ -1069,3 +1072,5 @@ rtt min/avg/max/mdev = 0.044/0.065/0.101/0.026 ms
 -> exit
 
 完结！！！我们通过使用简单的go程序组合 UTS、User、PID、Mount和 Network命名空间，成功演示了一个简单的容器。
+
+****

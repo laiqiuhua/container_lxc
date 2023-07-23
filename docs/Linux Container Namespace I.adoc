@@ -1,4 +1,5 @@
-
+.Linux Container Namespace I
+****
 == 概述
 
 有没有想过 Linux Container是如何工作的？？？
@@ -53,8 +54,8 @@ $ apt-cache police golang
 以下是典型的输出：
 
 [source]
+.output.2
 ----
-output.2
 golang:
 Installed: (none)
 Candidate: 2:1.13~1ubuntu1ppa1~bionic
@@ -103,8 +104,8 @@ $ unshare -h
 以下是典型的输出：
 
 [source]
+.output.3
 ----
-output.3
 Usage:
  unshare [options] [<program> [<argument>...]]
 
@@ -139,8 +140,8 @@ $ ls -l /proc/$$/ns
 以下是典型的输出：
 
 [source]
+.output.4
 ----
-output.4
 total 0
 lrwxrwxrwx 1 alice alice 0 Mar  7 12:17 cgroup -> 'cgroup:[4026531835]'
 lrwxrwxrwx 1 alice alice 0 Mar  7 12:17 ipc -> 'ipc:[4026531839]'
@@ -169,7 +170,7 @@ $ echo $$
 以下是典型的输出：
 
 [source]
-output.5
+.output.5
 18872
 
 要列出与简单容器关联的所有命名空间，请在TB中执行以下命令：
@@ -180,8 +181,8 @@ $ ls -l /proc/$$/ns
 以下是典型的输出：
 
 [source]
+.output.6
 ----
-output.6
 total 0
 lrwxrwxrwx 1 root root 0 Mar  7 12:36 cgroup -> 'cgroup:[4026531835]'
 lrwxrwxrwx 1 root root 0 Mar  7 12:36 ipc -> 'ipc:[4026531839]'
@@ -205,7 +206,7 @@ $ hostname
 以下是典型的输出：
 
 [source]
-output.7
+.output.7
 polarsparc
 
 要显示简单容器的主机名，请在TB中执行以下命令：
@@ -216,7 +217,7 @@ $ hostname
 以下是典型的输出：
 
 [source]
-output.8
+.output.8
 leopard
 
 这向我们表明，我们已经将简单容器的主机名与父主机名隔离开来。
@@ -310,7 +311,7 @@ $ ./main
 
 以下是典型的输出：
 [source]
-output.9
+.output.9
 2020/03/07 12:49:11 Starting process ./main with args: [./main]
 2020/03/07 12:49:11 Ready to run command ...
 2020/03/07 12:49:11 Starting process ./main with args: [./main CLONE]
@@ -327,6 +328,7 @@ output.9
 以下是典型的输出：
 
 [source]
+.output.10
 leopard
 
 要退出简单容器，请在TB中执行以下命令：
@@ -357,7 +359,7 @@ $ id
 以下是典型的输出：
 
 [source]
-output.10
+.output.11
 uid=65534(nobody) gid=65534(nogroup) groups=65534(nogroup)
 
 创建用户命名空间后，它启动时不会将新命名空间中的用户/组 ID 映射到父用户/组 ID。未映射的用户/组 ID 被分配溢出用户/组 ID 的默认值。溢出用户 ID 的默认值是从 /proc/sys/kernel/overflowuid中读取的（即 65534）。同样，溢出组 ID 的默认值是从/proc/sys/kernel/overflowgid中读取的（即 65534）。
@@ -384,7 +386,7 @@ $ unshare -uUr /bin/sh
 以下是典型的输出：
 
 [source]
-output.11
+.output.12
 uid=0(root) gid=0(root) groups=0(root)
 
 要列出与简单容器关联的所有命名空间，请在TB中执行以下命令：
@@ -397,8 +399,8 @@ uid=0(root) gid=0(root) groups=0(root)
 以下是典型的输出：
 
 [source]
+.output.13
 ----
-output.12
 total 0
 lrwxrwxrwx 1 root root 0 Mar 7 13:09 cgroup -> 'cgroup:[4026531835]'
 lrwxrwxrwx 1 root root 0 Mar 7 13:09 ipc -> 'ipc:[4026531839]'
@@ -409,7 +411,7 @@ lrwxrwxrwx 1 root root 0 Mar 7 13:09 pid_for_children -> 'pid:[4026531836]'
 lrwxrwxrwx 1 root root 0 Mar 7 13:09 user -> 'user:[4026532892]'
 lrwxrwxrwx 1 root root 0 Mar 7 13:09 uts -> 'uts:[4026533401]'
 ----
-比较 Output.12 和 Output.3，我们看到uts命名空间和user命名空间都发生了变化，这是预期的且正确的。
+比较 .output.12 和 .output.3，我们看到uts命名空间和user命名空间都发生了变化，这是预期的且正确的。
 
 要退出简单容器，请在TB中执行以下命令：
 
@@ -501,8 +503,8 @@ $ ./main
 以下是典型的输出：
 
 [source]
+.output.14
 ----
-output.13
 2020/03/07 13:17:02 Starting process ./main with args: [./main]
 2020/03/07 13:17:02 Ready to run command ...
 2020/03/07 13:17:02 Starting process ./main with args: [./main CLONE]
@@ -519,7 +521,7 @@ output.13
 以下是典型的输出：
 
 [source]
-ouput.14
+ouput.15
 uid=0(root) gid=0(root) groups=0(root)
 
 要列出与简单容器关联的所有命名空间，请在TB中执行以下命令：
@@ -530,8 +532,8 @@ uid=0(root) gid=0(root) groups=0(root)
 以下是典型的输出：
 
 [source]
+.output.16
 ----
-output.15
 total 0
 lrwxrwxrwx 1 root root 0 Mar 13 21:17 cgroup -> 'cgroup:[4026531835]'
 lrwxrwxrwx 1 root root 0 Mar 13 21:17 ipc -> 'ipc:[4026531839]'
@@ -550,7 +552,7 @@ lrwxrwxrwx 1 root root 0 Mar 13 21:17 uts -> 'uts:[4026532723]'
 以下是典型的输出：
 
 [source]
-output.16
+.output.17
 leopard
 
 要退出简单容器，请在TB中执行以下命令：
@@ -591,7 +593,7 @@ IMPORTANT: 确保选项-f是 * SPECIFIED *。否则会遇到如下错误：
 以下是典型的输出：
 
 [source]
-output.17
+.output.18
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root         1  0.0  0.0   4628   880 pts/1    S    09:08   0:00 /bin/sh
 root         6  0.0  0.0  37368  3340 pts/1    R+   09:12   0:00 ps -fu
@@ -604,13 +606,13 @@ $ ps-fu
 以下是典型的输出：
 
 [source]
-output.18
+.output.19
 USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 polarsparc  8695  0.0  0.0  22840  5424 pts/1    Ss   08:43   0:00 bash
 polarsparc  8681  0.0  0.0  22708  5096 pts/0    Ss   08:43   0:00 bash
 polarsparc  9635  0.0  0.0  37368  3364 pts/0    R+   09:12   0:00  \_ ps -fu
 
-比较 Output.17 和 Output.18，我们看到新命名空间和父命名空间之间的隔离，这是预期的且正确的。
+比较 .output.17 和 .output.18，我们看到新命名空间和父命名空间之间的隔离，这是预期的且正确的。
 
 要退出简单容器，请在TB中执行以下命令：
 
@@ -711,7 +713,7 @@ $ ./main
 以下是典型的输出：
 
 [source]
-output.19
+.output.20
 2020/03/07 13:38:02 Starting process ./main with args: [./main]
 2020/03/07 13:38:02 Ready to run command ...
 2020/03/07 13:38:02 Starting process ./main with args: [./main CLONE]
@@ -728,7 +730,7 @@ output.19
 以下是典型的输出：
 
 [source]
-ouput.20
+ouput.21
 leopard
 
 要显示新命名空间中的用户 ID 和组 ID，请在TB中执行以下命令：
@@ -739,7 +741,7 @@ leopard
 以下是典型的输出：
 
 [source]
-ouput.21
+ouput.22
 uid=0(root) gid=0(root) groups=0(root)
 
 要显示简单容器中的所有进程，请在TB中执行以下命令：
@@ -750,7 +752,7 @@ uid=0(root) gid=0(root) groups=0(root)
 以下是典型的输出：
 
 [source]
-output.22
+.output.23
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root         1  0.0  0.0   4628   776 pts/1    S    09:41   0:00
 root         6  0.0  0.0  37368  3400 pts/1    R+   09:41   0:00 ps -fu
@@ -763,7 +765,7 @@ root         6  0.0  0.0  37368  3400 pts/1    R+   09:41   0:00 ps -fu
 以下是典型的输出：
 
 [source]
-ouput.23
+.output.24
 total 0
 lrwxrwxrwx 1 root root 0 Mar 14 09:44 cgroup -> 'cgroup:[4026531835]'
 lrwxrwxrwx 1 root root 0 Mar 14 09:44 ipc -> 'ipc:[4026531839]'
@@ -814,8 +816,8 @@ $ cat /proc/mounts | sort
 
 以下是典型的输出：
 [source]
+.output.25
 ----
-output.24
 cgroup /sys/fs/cgroup/blkio cgroup rw,nosuid,nodev,noexec,relatime,blkio 0 0
 cgroup /sys/fs/cgroup/cpu,cpuacct cgroup rw,nosuid,nodev,noexec,relatime,cpu,cpuacct 0 0
 cgroup /sys/fs/cgroup/cpuset cgroup rw,nosuid,nodev,noexec,relatime,cpuset 0 0
@@ -862,7 +864,7 @@ udev /dev devtmpfs rw,nosuid,relatime,size=16402556k,nr_inodes=4100639,mode=755 
 
 [source]
 ----
-output.25
+.output.25
 cgroup /sys/fs/cgroup/blkio cgroup rw,nosuid,nodev,noexec,relatime,blkio 0 0
 cgroup /sys/fs/cgroup/cpu,cpuacct cgroup rw,nosuid,nodev,noexec,relatime,cpu,cpuacct 0 0
 cgroup /sys/fs/cgroup/cpuset cgroup rw,nosuid,nodev,noexec,relatime,cpuset 0 0
@@ -899,7 +901,7 @@ tmpfs /run/user/1000 tmpfs rw,nosuid,nodev,relatime,size=3293616k,mode=700,uid=1
 tmpfs /sys/fs/cgroup tmpfs ro,nosuid,nodev,noexec,mode=755 0 0
 udev /dev devtmpfs rw,nosuid,relatime,size=16402556k,nr_inodes=4100639,mode=755 0 0
 ----
-比较 Output.25 和 Output.24，我们看到proc的一个区别。创建新的 Mount命名空间时，新命名空间的挂载点是父命名空间中挂载点的副本。
+比较 .output.25 和 .output.24，我们看到proc的一个区别。创建新的 Mount命名空间时，新命名空间的挂载点是父命名空间中挂载点的副本。
 
 我们现在将演示对新命名空间的任何更改都不会影响父命名空间。
 
@@ -941,7 +943,7 @@ $ ls -l /
 以下是典型的输出：
 
 [source]
-output.26
+.output.26
 total 96
 drwxr-xr-x   2 root root  4096 Mar  1 10:58 bin
 drwxr-xr-x   3 root root  4096 Mar 16 21:15 boot
@@ -979,7 +981,7 @@ lrwxrwxrwx   1 root root    30 Feb 17 14:08 vmlinuz.old -> boot/vmlinuz-4.15.0-8
 以下是典型的输出：
 
 [source]
-output.27
+.output.27
 total 72
 drwxr-xr-x   2 nobody nogroup 4096 Feb  3 20:24 bin
 drwxr-xr-x   2 nobody nogroup 4096 Apr 24  2018 boot
@@ -1001,7 +1003,7 @@ drwxrwxr-x   2 nobody nogroup 4096 Feb  3 20:24 tmp
 drwxr-xr-x  10 nobody nogroup 4096 Feb  3 20:23 usr
 drwxr-xr-x  11 nobody nogroup 4096 Feb  3 20:24 var
 
-比较 Output.26 和 Output.27，我们看到根文件系统完全不同。
+比较 .output.26 和 .output.27，我们看到根文件系统完全不同。
 
 要将/tmp作为新命名空间中的临时文件系统tmpfs挂载，请在TB中执行以下命令：
 
@@ -1027,7 +1029,7 @@ drwxr-xr-x  11 nobody nogroup 4096 Feb  3 20:24 var
 以下是典型的输出：
 
 [source]
-output.28
+.output.28
 -rw-r--r-- 1 root root 7 Mar 14 22:05 /tmp/leopard.txt
 
 要列出父命名空间中文件/tmp/leopard.txt的属性，请在TA中执行以下命令：
@@ -1038,7 +1040,7 @@ $ ls -l /tmp/leopard.txt
 以下是典型的输出：
 
 [source]
-output.29
+.output.29
 ls: cannot access '/tmp/leopard.txt': No such file or directory
 
 最后，要从新命名空间中完全删除父根文件系统rootfs/.old_root ，请在TB中执行以下命令：
@@ -1060,7 +1062,7 @@ ls: cannot access '/tmp/leopard.txt': No such file or directory
 以下是典型的输出：
 
 [source]
-ouput.30
+.output.30
 /dev/sda1 / ext4 rw,relatime,errors=remount-ro,data=ordered 0 0
 proc /proc proc rw,relatime 0 0
 tmpfs /tmp tmpfs rw,relatime 0 0
@@ -1071,3 +1073,5 @@ tmpfs /tmp tmpfs rw,relatime 0 0
 ＃ exit
 
 成功 ！！！我们已经使用unshare命令演示了组合的UTS、 User、PID和Mount命名空间。
+
+****

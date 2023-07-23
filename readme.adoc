@@ -31,7 +31,9 @@ link:docs/Linux%20Container%20Namespace%20I.adoc[UTS Namespace,PID Namespace,Use
 
 link:docs/Linux%20Container%20Namespace%20II.adoc[Mount Namespace,Network Namespace]
 
+* {empty}
 include::docs/Linux Container Namespace I.adoc[UTS Namespace,PID Namespace,User Namespace]
 
+* {empty}
 include::docs/Linux Container Namespace II.adoc[Mount Namespace,Network Namespace]
 
