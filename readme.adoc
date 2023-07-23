@@ -1,5 +1,7 @@
-= 使用命名空间构建Linux Container
----
+= Linux Container Namespaces
+:doctype: book
+:imagesdir: ./docs/
+:toc:
 
 [red]#注意事项#
 
@@ -26,7 +28,7 @@ docker run -it --rm --privileged qhlai/container:lxc_go_v1
 
 
 
-link:docs/Linux%20Container%20Namespace%20I.adoc[UTS Namespace,PID Namespace,User Namespace]
 
+include::docs/Linux Container Namespace I.adoc[UTS Namespace,PID Namespace,User Namespace]
 
-link:docs/Linux%20Container%20Namespace%20II.adoc[Mount Namespace,Network Namespace]
+include::docs/Linux Container Namespace II.adoc[ount Namespace,Network Namespace]

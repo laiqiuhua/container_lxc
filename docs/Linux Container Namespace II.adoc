@@ -410,11 +410,9 @@ output.12
 下图说明了具有虚拟以太网对的桥接网络：
 
 .Bridge Network
-[.cneter]
-image::imgs/img.png[sunset, 500, 375, align=center]
+[.center]
+image::./imgs/img.png[sunset, 500, 375, align=center]
 
-桥接网络
-桥接网络
 要在父命名空间中创建名为veth0和 veth1的 veth接口对，请在TA 中执行以下命令：
 
 [source,bash]
@@ -551,7 +549,8 @@ rtt min/avg/max/mdev = 0.038/0.052/0.079/0.019 ms
 以下是典型的输出：
 
 [source]
-outputPING 172.20.1.3 (172.20.1.3) 56(84) bytes of data.
+output
+PING 172.20.1.3 (172.20.1.3) 56(84) bytes of data.
 64 bytes from 172.20.1.3: icmp_seq=1 ttl=64 time=0.072 ms
 64 bytes from 172.20.1.3: icmp_seq=2 ttl=64 time=0.039 ms
 64 bytes from 172.20.1.3: icmp_seq=3 ttl=64 time=0.044 ms
@@ -567,12 +566,12 @@ rtt min/avg/max/mdev = 0.039/0.051/0.072/0.016 ms
 要关闭父命名空间中的桥接口br0 ，请在TA中执行以下命令：
 
 [source,bash]
-$ sudo ip link set br0 down
+$ ip link set br0 down
 
 要删除父命名空间中的桥接口br0 ，请在TA中执行以下命令：
 
 [source,bash]
-$ sudo brctl delbr br0
+$ brctl delbr br0
 
 接下来，我们将使用以下go程序来模拟上面的UTS、User、 PID、Mount和Network 、命名空间隔离：
 
@@ -1012,7 +1011,7 @@ $ cat /proc/self/net/dev
 
 以下是典型的输出：
 
-[source
+[source]
 ----
 output.19
 Inter-|   Receive                                                |  Transmit
