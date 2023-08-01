@@ -31,9 +31,17 @@ link:docs/Linux%20Container%20Namespace%20I.adoc[UTS Namespace,PID Namespace,Use
 
 link:docs/Linux%20Container%20Namespace%20II.adoc[Mount Namespace,Network Namespace]
 
-* {empty}
-include::docs/Linux Container Namespace I.adoc[UTS Namespace,PID Namespace,User Namespace]
+link:docs/docker.sh.md[docker.sh实现docker]
 
-* {empty}
-include::docs/Linux Container Namespace II.adoc[Mount Namespace,Network Namespace]
+
+== Run Container
+----
+# 制作镜像
+mkdir images
+cd images
+sudo debootstrap --arch amd64 xenial ./ubuntu1604
+
+# 运行容器
+sudo ./docker.sh -c run -m 100M -C dreamland -I ubuntu1604 -V data1 -P /bin/bash -n host -n none
+----
 
